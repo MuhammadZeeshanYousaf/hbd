@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Background sparkles -->
+        <div id="sparkles-container"></div>
+        
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="front"></div>
+                <div class="card">
+                    <div class="text">
+                        <h1>Happy Birthday!</h1>
+                        <p>Click to open</p>
+                    </div>
+                </div>
+                <div class="flap"></div>
+            </div>
+        </div>
+
+        <div class="birthday-content hidden">
+            <div class="cake-container">
+                <div class="cake">
+                    <div class="cake-decoration">
+                        <div class="decoration"></div>
+                        <div class="decoration"></div>
+                        <div class="decoration"></div>
+                        <div class="decoration"></div>
+                        <div class="decoration"></div>
+                    </div>
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="message">
+                <h1 class="birthday-heading">Happy Birthday <span class="name">Love</span>!</h1>
+                <p class="birthday-text">On this special day, I want you to know how much you mean to me. 
+                    You light up my world with your smile and fill my heart with joy.
+                    I'm so grateful to have you in my life.</p>
+                <p class="birthday-text">Wishing you all the happiness in the world today and always.</p>
+                <p class="signature">With all my love,<br>Your Fiancé</p>
+            </div>
+
+            <button class="celebrate-btn">Celebrate!</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
