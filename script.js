@@ -259,20 +259,23 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.candle').appendChild(smoke);
         
         // Add smoke animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes rise {
-                0% {
-                    opacity: 0.7;
-                    transform: translateX(-50%) scale(1);
+        if (!document.querySelector('style#smoke-animation')) {
+            const style = document.createElement('style');
+            style.id = 'smoke-animation';
+            style.textContent = `
+                @keyframes rise {
+                    0% {
+                        opacity: 0.7;
+                        transform: translateX(-50%) scale(1);
+                    }
+                    100% {
+                        opacity: 0;
+                        transform: translateX(-50%) scale(5) translateY(-100px);
+                    }
                 }
-                100% {
-                    opacity: 0;
-                    transform: translateX(-50%) scale(5) translateY(-100px);
-                }
-            }
-        `;
-        document.head.appendChild(style);
+            `;
+            document.head.appendChild(style);
+        }
     }
     
     // Check for mobile devices and adjust animations if needed

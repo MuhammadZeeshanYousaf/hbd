@@ -159,56 +159,64 @@ body {
     text-shadow: 1px 1px 2px rgba(156, 39, 176, 0.2);
 }
 
-/* Improved Cake Styles */
+/* Modern Cake Styles - Exact Match to Screenshot */
 .cake-container {
     margin: 40px auto;
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 
-.cake {
-    position: relative;
-    width: 180px;
-    height: 100px;
-    background: linear-gradient(to right, #ff9a9e, #fad0c4);
-    border-radius: 10px 10px 50% 50%;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
-    overflow: visible;
-}
-
-.cake::before {
+/* Cake plate - white oval */
+.cake-container::after {
     content: '';
     position: absolute;
-    width: 100%;
-    height: 40px;
-    background: linear-gradient(to right, #fbc2eb, #a6c1ee);
-    bottom: 100%;
-    border-radius: 10px 10px 0 0;
+    bottom: 0;
+    width: 220px;
+    height: 30px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    z-index: 0;
 }
 
-.cake::after {
-    content: '';
+/* Main cake body - pink semicircle */
+.cake {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    background: linear-gradient(135deg, #f8a5c2 0%, #f9c5d1 100%);
+    border-radius: 100px 100px 0 0;
+    z-index: 1;
+    margin-bottom: 10px;
+    transform: rotate(180deg);
+}
+
+/* Cake top layer - purple/blue gradient rectangle */
+.cake-top {
     position: absolute;
     width: 180px;
     height: 30px;
-    background: #fff;
-    bottom: -15px;
-    left: 0;
-    border-radius: 50%;
-    z-index: -1;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+    background: linear-gradient(90deg, #e2c9f8 0%, #b8d0e8 100%);
+    bottom: -30px;
+    left: 10px;
+    border-radius: 8px;
+    z-index: 2;
 }
 
-/* Cake decorations */
+/* Cake decorations - pink dots */
 .cake-decoration {
     position: absolute;
-    width: 100%;
+    width: 180px;
     height: 10px;
-    top: -40px;
+    bottom: -15px;
+    left: 10px;
     display: flex;
     justify-content: space-around;
+    z-index: 3;
 }
 
 .decoration {
@@ -218,40 +226,45 @@ body {
     border-radius: 50%;
 }
 
+/* Candle - white vertical rectangle */
 .candle {
     position: absolute;
-    width: 20px;
-    height: 60px;
-    background: linear-gradient(to right, #ffffff, #f5f5f5);
-    top: -90px;
+    width: 15px;
+    height: 80px;
+    background: #ffffff;
+    bottom: 140px;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 10px;
+    border-radius: 3px;
     z-index: 2;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.candle::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 10px;
-    background: #ff80ab;
-    bottom: 0;
-    border-radius: 10px;
-}
-
+/* Flame - yellow/orange oval */
 .flame {
     position: absolute;
-    width: 15px;
+    width: 20px;
     height: 30px;
-    background: linear-gradient(to bottom, #ffcc80, #ff9800);
+    background: linear-gradient(to bottom, #ffeb3b, #ff9800);
     top: -25px;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 50% 50% 20% 20%;
-    box-shadow: 0 0 10px #ff9800, 0 0 20px #ff9800, 0 0 40px #ff9800;
+    border-radius: 50% 50% 35% 35%;
+    box-shadow: 0 0 10px #ff9800, 0 0 20px #ff9800;
     animation: flicker 1s infinite alternate;
+    z-index: 3;
+}
+
+/* Flame glow */
+.flame::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    filter: blur(5px);
+    z-index: -1;
+    opacity: 0.8;
 }
 
 /* Button Styles - More colorful */
@@ -366,6 +379,7 @@ body {
     }
 }
 
+/* Mobile-specific adjustments */
 @media (max-width: 480px) {
     .container {
         padding: 10px;
@@ -375,9 +389,36 @@ body {
         font-size: 2rem;
     }
     
+    .cake-container {
+        width: 240px;
+        height: 240px;
+    }
+    
     .cake {
-        width: 120px;
+        width: 160px;
+        height: 80px;
+        border-radius: 80px 80px 0 0;
+    }
+    
+    .cake-top {
+        width: 140px;
+        height: 25px;
+        left: 10px;
+    }
+    
+    .cake-decoration {
+        width: 140px;
+    }
+    
+    .decoration {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .candle {
         height: 70px;
+        width: 12px;
+        bottom: 110px;
     }
     
     .envelope-wrapper {
