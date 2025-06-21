@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const celebrateBtn = document.querySelector('.celebrate-btn');
     const nameElement = document.querySelector('.name');
     
+    // Set the recipient's name
+    const recipientName = "Hafsa";
+    
     // Create background sparkles
     createSparkles();
     
@@ -42,6 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
             nameElement.textContent = name;
         }
     }
+    
+    // Set the name immediately
+    updateName(recipientName);
     
     // Envelope click event with improved animation
     envelope.addEventListener('click', () => {
@@ -209,12 +215,37 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Function to play birthday song
     function playBirthdaySong() {
-        // Create audio element for birthday song
-        const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
+        // Create audio element for local birthday song file
+        const audio = new Audio('happy-birthday.mp3');
+        
+        // Keep backup URLs in case the local file fails
+        const backupUrls = [
+            'https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0c6ff1bab.mp3',
+            'https://www.chosic.com/wp-content/uploads/2020/04/Happy-Birthday-Music-Box.mp3'
+        ];
+        
         audio.volume = 0.5;
         audio.play().catch(error => {
-            console.log('Audio playback failed:', error);
+            console.log('Local audio playback failed, trying backup:', error);
+            
+            // Try backup URLs if the local file fails
+            tryBackupAudio(0);
         });
+        
+        // Function to try backup audio sources
+        function tryBackupAudio(index) {
+            if (index >= backupUrls.length) {
+                console.log('All audio playback attempts failed');
+                return;
+            }
+            
+            const backupAudio = new Audio(backupUrls[index]);
+            backupAudio.volume = 0.5;
+            backupAudio.play().catch(error => {
+                console.log(`Backup audio ${index + 1} failed:`, error);
+                tryBackupAudio(index + 1);
+            });
+        }
     }
     
     // Function to make the cake's candle blow out

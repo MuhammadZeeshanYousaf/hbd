@@ -9,7 +9,7 @@ A beautiful interactive birthday website with animations, confetti effects, and 
 - Colorful confetti explosion effects
 - Multiple floating heart animations with different emoji styles
 - Background sparkles and enhanced visual effects
-- Background music
+- Custom birthday song (using local happy-birthday.mp3 file)
 - Fully responsive design optimized for all devices including mobile phones
 
 ## How to Use
@@ -25,6 +25,12 @@ To add your fiancée's name to the website:
 1. Open the `index.html` file
 2. Find the line with `<span class="name">Love</span>` (around line 36)
 3. Replace "Love" with your fiancée's name
+
+## Music
+
+The website uses a local music file:
+- `happy-birthday.mp3` in the root directory plays when the "Celebrate!" button is clicked
+- Backup online sources are used if the local file fails to play
 
 ## Mobile Optimization
 
